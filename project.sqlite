@@ -1,0 +1,51 @@
+select count(name) as 'total number of company' from 
+startups;
+
+select sum(valuation) from startups;
+
+select max(raised) from startups;
+
+select max(raised) from startups where stage = 'Seed';
+
+select min(founded) as 'oldest company'
+FROM startups;
+
+SELECT AVG(valuation)
+FROM startups;
+
+
+SELECT AVG(valuation), category
+FROM startups group by category;
+
+
+
+SELECT ROUND(AVG(valuation), 2) AS rounded , category
+FROM startups GROUP BY category;
+
+
+SELECT AVG(valuation) AS average
+FROM startups
+GROUP BY category ORDER BY average desc;
+
+
+
+SELECT category, count(*)
+FROM startups 
+group by category;
+
+
+
+SELECT category, COUNT(*)
+FROM startups
+GROUP BY category
+HAVING COUNT(*) > 3;
+
+
+SELECT location, AVG(employees)
+FROM STARTUPS
+GROUP BY location HAVING AVG(employees) > 500;
+
+
+
+
+
