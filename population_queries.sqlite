@@ -1,0 +1,97 @@
+
+
+3. 
+How many entries in the countries table are from Africa?
+
+
+select count(name) from countries
+where continent = 'Africa';
+Ans: 56
+
+
+
+4. 
+What was the total population of the continent of Oceania in 2005?
+
+
+SELECT sum(population_years.population) FROM countries JOIN population_years ON countries.id=population_years.country_id WHERE countries.continent=’Oceania’ AND population_years.year=2005;
+
+Ans: 32.66417
+
+
+5. What is the average population of countries in South America in 2003?
+
+
+select avg(population_years.population) from population_years
+join countries on countries.id = population_years.country_id
+where countries.continent = 'South America' and population_years.year
+= 2003;
+
+  Ans.  25.8906514285714 */
+
+
+6. What country had the smallest population in 2007?
+
+
+select countries.name,  min(population_years.population) from countries
+join population_years on
+countries.id = population_years.country_id
+where population_years.year = 2007; 
+
+ Ans. Niue
+
+
+7. What is the average population of Poland during the time period covered by this dataset?
+
+select avg(population_years.population) from countries
+join population_years on countries.id = population_years.country_id
+where countries.name = 'Poland'; 
+
+ Ans. 38.5606790909
+
+
+
+8. 
+How many countries have the word “The” in their name?
+
+
+select distinct countries.name, count(distinct countries.name) from
+countries join population_years 
+on countries.id = population_years.country_id
+where countries.name like '%The%' group by countries.name;
+
+
+Ans. 3: Bahamas, The	1
+Gambia, The	1
+Netherlands	1
+
+
+9. What was the total population of each continent in 2010?
+
+
+select countries.continent , sum(population_years.population)
+from countries join population_years on
+countries.id = population_years.country_id
+where population_years.year = 2010
+group by countries.continent;
+
+Ans: 
+
+continent	sum(population_years.population)
+Africa	1015.47846
+Asia	4133.09148
+Europe	723.06044
+North America	539.79456
+Oceania	34.95696
+South America	396.58235
+*/
+
+
+
+
+
+
+
+
+
+
